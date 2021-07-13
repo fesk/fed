@@ -1,6 +1,6 @@
 # fed
 
-fed.js v1.02 *very* minimal / lightweight inline rich text/HTML editor, plain javascript. fed = [f]esk's [ed]itor.
+fed.js v1.04 *very* minimal / lightweight inline rich text/HTML editor, plain javascript. fed = [f]esk's [ed]itor.
 Copyright (c) 2021, Nick Besant hwf@fesk.net. All rights reserved.
 licenced under GPLv3, see LICENCE.txt
 
@@ -21,11 +21,19 @@ Options info
               string which is assumed to be an ID, or a DOM element
       options is an object with;
               do_keybinding:bool (default true) - do/don't bind keys
+              grabtab:bool (default false) - override default TAB behaviour.  Don't do this,
+                                          it breaks accessibility even further.
               language:str (default en-GB) - a key in fed_strings
               strings:object (defaults to built-in fed_strings) - use to provide translated tips
               icons:object (defaults to built-in fed_icons) - replace icons (defaults to
                                           FontAwesome's basic icons).  You will need to make
                                           sure you include _icostart and _icoend keys.
+              allow_sourceview:bool (default true) - show the view source button
+              allow_images:bool   (default true) - show an image selector button
+              img_max_size:int (default 1024*1024) - max size of individual image, if
+                                          user adds a larger image, string 'image_too_big' is shown
+                                          in the console, and 'error' callbacks (see .on()) are called.
+              
 ```
 
 highlights;
