@@ -1,5 +1,5 @@
 /*
-//- fed.js v1.02 *very* minimal / lightweight inline rich text/HTML editor, plain javascript. fed = [f]esk's [ed]itor.
+//- fed.js v1.04 *very* minimal / lightweight inline rich text/HTML editor, plain javascript. fed = [f]esk's [ed]itor.
 //- Copyright (c) 2021, Nick Besant hwf@fesk.net. All rights reserved.
 //- licenced under GPLv3, see LICENCE.txt
 */
@@ -28,13 +28,13 @@
     position: relative;
     cursor: pointer;
 }
-.fed-tb button:before,.fed-tb button:after {
+.fed-tb .fed-btn:before,.fed-tb .fed-btn:after {
       visibility: hidden;
       opacity: 0;
       pointer-events: none;
       z-index: 9999;
     }
-.fed-tb button:after {
+.fed-tb .fed-btn:after {
       position: absolute;
       top: -200%;
       left: -50%;
@@ -53,7 +53,7 @@
       font-size: 0.8rem;
       line-height: 1.2;
     }
-.fed-tb button:before {
+.fed-tb .fed-btn:before {
       position: absolute;
       top: calc(-20% - 5px);
       left: 50%;
@@ -66,7 +66,7 @@
       font-size: 0;
       line-height: 0;
     }
-.fed-tb button:hover:before,.fed-tb button:hover:after{
+.fed-tb .fed-btn:hover:before,.fed-tb .fed-btn:hover:after{
       visibility: visible;
       opacity: 1;
     }
@@ -79,6 +79,16 @@
 .fed-content.html{
     font-family: "Courier New", Courier, monospace;
     background-color: #fdfdef;
+}
+.fed-content .fed-pre{
+    height:100%;
+    width:100%;
+    padding:3px;
+    border:none;
+    margin:0;
+}
+.fed-content .fed-pre:focus{
+    outline: none;
 }
 .fed-btn{
     background: transparent !important;
@@ -114,8 +124,14 @@
     padding:10px;
     font-family: "Courier New", Courier, monospace;
 }
-.fed-colourbtn{
-    position: absolute;
-    top:-9999px;
-    left:-9999px;
+.fed-colourfore,.fed-filefore{
+    cursor: pointer;
+}
+.fed-colourbtn,.fed-filebtn{
+    margin:0 !important;
+    border:0 !important;
+    padding:0 !important;
+    width:0;
+    height:0;
+    opacity:0;
 }
